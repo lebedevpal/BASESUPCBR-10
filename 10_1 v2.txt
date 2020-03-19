@@ -1,0 +1,8 @@
+index="bl_logging"|
+eval errors=if(match(severity, "ERROR"), 1, 0) |
+eval info=if(match(severity, "INFO"), 1, 0) |
+convert timeformat="%d.%m %H:%M:%S" ctime(*Time) |
+eval nm=pis_scenario_name . " (" . pis_scenario_version . ")" |
+fields nm, errors, info |
+rename nm as "ИСЦ", errors as "Ошибок", info as "Информационных сообщений"
+https://docs.splunk.com/Documentation/Splunk/7.0.2/SearchReference/ConditionalFunctions
